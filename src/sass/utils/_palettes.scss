@@ -1,0 +1,130 @@
+$palette: (
+  red: (
+    base: #ff4436,   // 500
+    dark: #d32f2f,   // 700
+    light: #ffcdd2,  // 100
+    accent: #ff5252  // A200
+  ),
+  pink: (
+      base: #e91e63,
+      dark: #c2185b,
+      light: #f8bbd0,
+      accent: #ff4081
+  ),
+  purple: (
+      base: #9c27b0,
+      dark: #7b1fa2,
+      light: #e1bee7,
+      accent: #e040fb
+  ),
+  deeppurple: (
+      base: #673ab7,
+      dark: #512da8,
+      light: #d1c4e9,
+      accent: #7c4dff
+  ),
+  indigo: (
+      base: #3f51b5,
+      dark: #303f9f,
+      light: #c5cae9,
+      accent: #536dfe
+  ),
+  blue: (
+      base: #2196f3,
+      dark: #1976d2,
+      light: #bbdefb,
+      accent: #448aff
+  ),
+  lightblue: (
+      base: #03a9f4,
+      dark: #0288d1,
+      light: #b3e5fc,
+      accent: #40c4ff
+  ),
+  cyan: (
+      base: #00bcd4,
+      dark: #0097a7,
+      light: #b2ebf2,
+      accent: #18ffff
+  ),
+  teal: (
+      base: #009688,
+      dark: #00796b,
+      light: #b2dfdb,
+      accent: #64ffda
+  ),
+  green: (
+      base: #4caf50,
+      dark: #388e3c,
+      light: #c8e6c9,
+      accent: #69f0ae
+  ),
+  lightgreen: (
+      base: #8bc34a,
+      dark: #689f38,
+      light: #dcedc8,
+      accent: #b2fe59
+  ),
+  lime: (
+      base: #cddc39,
+      dark: #afb42b,
+      light: #f9f4c3,
+      accent: #eeff41
+  ),
+  yellow: (
+      base: #ffeb3b,
+      dark: #fbc02d,
+      light: #fff9c4,
+      accent: #ffff00
+  ),
+  amber: (
+      base: #ffc107,
+      dark: #ffa000,
+      light: #ffecb3,
+      accent: #ffd740
+  ),
+  orange: (
+      base: #ff9800,
+      dark: #f57c00,
+      light: #ffe0b2,
+      accent: #ffab40
+  ),
+  deeporange: (
+      base: #ff5722,
+      dark: #e64a19,
+      light: #ffccbc,
+      accent: #ff6e40
+  ),
+  brown: (
+      base: #795548,
+      dark: #5d4037,
+      light: #d7ccc8,
+      accent: #fff
+  ),
+  grey: (
+      base: #9e9e9e,
+      dark: #616161,
+      light: #f5f5f5,
+      accent: #fff
+  ),
+  bluegrey: (
+      base: #607d8b,
+      dark: #455a64,
+      light: #cfd8dc,
+      accent: #fff
+  )
+);
+
+@function color($key, $tone: 'base') {
+  @if map-has-key($palette, $key) {
+    @if map-has-key(map-get($palette, $key), $tone) {
+      @return map-get(map-get($palette, $key), $tone);
+    }
+    @else {
+      @error 'Oops, `#{$tone}` is not available in `#{map-get($palette, $key)}`';
+    }
+  }
+  @else {
+    @error 'Ouch, `#{$key}` is not available in $palette';
+  }
+}

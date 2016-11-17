@@ -1,0 +1,47 @@
+html
+  box-sizing: border-box
+  font-size: 100%
+  height: 100%
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  background-color: $color-bg
+  color: $color-text
+  font-family: $font-stack-sans
+  font-weight: $font-weight
+  line-height: $line-height
+  margin: 0
+  padding: 0
+
+button,
+input,
+select,
+textarea
+  font-family: inherit
+  font-size: inherit
+  line-height: inherit
+
+textarea
+  height: auto
+  min-height: 50px
+
+select
+  width: 100%
+
+[role="button"]
+  cursor: pointer
+
+a
+  color: $color-link
+  text-decoration: none
+
+  &:hover
+    color: lighten($color-link, 10%)
+
+img
+  height: auto
+  vertical-align: middle
+  width: 100%
+  -ms-interpolation-mode: bicubic

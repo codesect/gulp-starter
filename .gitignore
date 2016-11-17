@@ -1,0 +1,16 @@
+*.log
+
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+.idea
+node_modules/
+.sass-cache
+*.css.map
+dist/
+
+CNAME
