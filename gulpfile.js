@@ -10,12 +10,13 @@ var cleanCSS = require('gulp-clean-css');
 var jade = require('gulp-jade');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var plumber = require('gulp-plumber');
 
 var options = {
   src: {
     jade: ['./src/jade/**/*.jade', '!src/jade/**/layout.jade'],
     js: './src/js/**/*.js',
-    sass: './src/sass/*.sass'
+    sass: ['./src/sass/**/*.s+(a|c)ss', '!src/sass/vendors/**/*']
   },
   dest: {
     html: './dist/',
@@ -43,6 +44,7 @@ gulp.task('clean', function () {
 
 gulp.task('build:html', function() {
   return gulp.src(options.src.jade)
+  .pipe(plumber())
   .pipe(jade({pretty: true}))
   .pipe(gulp.dest(options.dest.html))
   .pipe(reload({stream: true}));
@@ -57,6 +59,7 @@ gulp.task('build:html:min', function() {
 
 gulp.task('build:js', function() {
   return gulp.src(options.src.js)
+  .pipe(plumber())
   .pipe(babel())
   .pipe(gulp.dest(options.dest.js))
   .pipe(reload({stream: true}));
@@ -73,6 +76,7 @@ gulp.task('build:js:min', function() {
 
 gulp.task('build:css', function() {
   return gulp.src(options.src.sass)
+  .pipe(plumber())
   .pipe(sassLint())
   .pipe(sassLint.format())
   .pipe(sassLint.failOnError())

@@ -1,6 +1,6 @@
 {
   "name": "gulp-starter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Gulp starter kit for frontend projects",
   "main": "gulpfile.js",
   "repository": {
@@ -24,6 +24,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-clean-css": "^2.0.13",
     "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sass-lint": "^1.2.0",
@@ -33,5 +34,5 @@
   "bugs": {
     "url": "https://github.com/zsoltime/gulp-starter/issues"
   },
-  "homepage": "https://github.com/zsoltime/gulp-starter#readme",
+  "homepage": "https://github.com/zsoltime/gulp-starter#readme"
 }
