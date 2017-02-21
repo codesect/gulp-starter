@@ -12,7 +12,7 @@
     "gulp": "gulp"
   },
   "author": "Zsolt Meszaros",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
