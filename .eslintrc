@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+  },
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": true,
+    },
+  },
+  "rules": {
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore",
+    }],
+    "import/extensions": 0,
+    import/no-extraneous-dependencies: [2, { devDependencies: true }],
+    "no-param-reassign": 0,
+  },
+}
