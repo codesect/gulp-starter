@@ -2,24 +2,37 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true,
+    "node": true
   },
   "extends": "airbnb-base",
   "parserOptions": {
     "ecmaFeatures": {
-      "modules": true,
-    },
+      "modules": true
+    }
   },
   "rules": {
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "never",
-      "exports": "never",
-      "functions": "ignore",
-    }],
-    "import/extensions": 0,
-    import/no-extraneous-dependencies: [2, { devDependencies: true }],
-    "no-param-reassign": 0,
-  },
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore",
+        "imports": "always-multiline",
+        "objects": "always-multiline"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "gulp/**",
+          "gulpfile.js",
+          "tests/**",
+          "webpack.config.js"
+        ]
+      }
+    ],
+    "max-len": ["error", { "code": 80 }],
+    "no-param-reassign": ["error", { "props": false }]
+  }
 }

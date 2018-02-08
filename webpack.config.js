@@ -1,6 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 
-module.exports = {
+const isDev = process.env.NODE_ENV === 'development';
+
+const config = {
   entry: {
     main: './src/scripts/main.js',
     vendor: './src/scripts/vendor.js',
@@ -13,12 +16,34 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loaders: [
-          'babel-loader',
-          'eslint-loader',
-        ],
+        loaders: ['babel-loader'],
         exclude: /node_modules/,
       },
     ],
   },
 };
+
+if (isDev) {
+  config.module.rules.loaders.push('eslint-loader');
+} else {
+  config.plugins = [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': process.env.NODE_ENV,
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: true,
+        warnings: true,
+      },
+      output: {
+        comments: false,
+        screw_ie8: true,
+      },
+      sourceMap: false,
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+  ];
+}
+
+module.exports = config;

@@ -1,24 +1,17 @@
+/* eslint-disable no-console */
 const gulp = require('gulp');
 const webpack = require('webpack');
-const webpackConfig = require('../webpack.config.js');
-const webpackConfigProd = require('../webpack.prod.config.js');
+const config = require('../webpack.config.js');
 
-gulp.task('scripts', (callback) => {
-  webpack(webpackConfig, (err, stats) => {
+const compile = (callback) => {
+  webpack(config, (err, stats) => {
     if (err) {
-      console.log(err.toString());
+      console.error(err.toString());
     }
     console.log(stats.toString());
     callback();
   });
-});
+};
 
-gulp.task('scripts:dist', (callback) => {
-  webpack(webpackConfigProd, (err, stats) => {
-    if (err) {
-      console.log(err.toString());
-    }
-    console.log(stats.toString());
-    callback();
-  });
-});
+gulp.task('scripts', ['env:dev'], compile);
+gulp.task('scripts:dist', ['env:prod'], compile);

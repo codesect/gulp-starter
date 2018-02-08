@@ -16,16 +16,16 @@ const postCSSPlugins = [
   autoprefixer,
 ];
 
-gulp.task('styles', () => (
-  gulp.src('./src/styles/style.sass')
+gulp.task('styles', () =>
+  gulp
+    .src('./src/styles/style.sass')
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions)
-      .on('error', sass.logError))
+    .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(postCSS(postCSSPlugins))
-    .on('error', function onError(err) {
+    .on('error', (err) => {
+      // eslint-disable-next-line no-console
       console.error(err.toString());
       this.emit('end');
     })
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./src/temp/css'))
-));
+    .pipe(gulp.dest('./src/temp/css')));

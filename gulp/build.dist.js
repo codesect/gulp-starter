@@ -1,61 +1,41 @@
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
+const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const usemin = require('gulp-usemin');
 const rev = require('gulp-rev');
 
-gulp.task('copyGeneralFiles', ['clean:dist'], () => (
-  gulp.src([
-    './src/**/*',
-    '!./src/images',
-    '!./src/images/**',
-    '!./src/pug',
-    '!./src/pug/**',
-    '!./src/scripts',
-    '!./src/scripts/**',
-    '!./src/styles',
-    '!./src/styles/**',
-    '!./src/temp',
-    '!./src/temp/**',
-  ])
-    .pipe(gulp.dest('./dist'))
-));
-
-gulp.task('optimizeImages', ['clean:dist'], () => (
-  gulp.src([
-    './src/images/**/*',
-    '!./src/images/icons',
-    '!./src/images/icons/**/*',
-  ])
+gulp.task('optimizeImages', ['clean:dist'], () =>
+  gulp
+    .src([
+      './src/images/**/*',
+      '!./src/images/icons',
+      '!./src/images/icons/**/*',
+    ])
     .pipe(imagemin({
-      progressive: true,
       interlaced: true,
       multipass: true,
+      progressive: true,
     }))
-    .pipe(gulp.dest('./dist/images'))
-));
+    .pipe(gulp.dest('./dist/images')));
 
 gulp.task('useminTrigger', ['clean:dist'], () => {
   gulp.start('usemin');
 });
 
-gulp.task('usemin', ['pugToHTML', 'styles', 'scripts:dist'], () => (
-  gulp.src('./src/temp/index.html')
+gulp.task('usemin', ['pugToHTML', 'styles', 'scripts:dist'], () =>
+  gulp
+    .src('./src/temp/*.html')
     .pipe(usemin({
-      css: [
-        () => rev(),
-        () => cleanCSS(),
-      ],
-      js: [
-        () => rev(),
-      ],
+      css: [() => rev(), () => cleanCSS()],
+      html: [() => htmlmin({ collapseWhitespace: true })],
+      js: [() => rev()],
     }))
-    .pipe(gulp.dest('./dist'))
-));
+    .pipe(gulp.dest('./dist')));
 
 gulp.task('build:dist', [
   'clean:dist',
-  'copyGeneralFiles',
+  'copy:general',
   'optimizeImages',
   'useminTrigger',
 ]);

@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const watch = require('gulp-watch');
 const browserSync = require('browser-sync').create();
 
-const reload = browserSync.reload;
+const { reload, stream } = browserSync;
 
 gulp.task('watch', ['build:dev'], () => {
   browserSync.init({
@@ -25,14 +25,15 @@ gulp.task('watch', ['build:dev'], () => {
   });
 });
 
-gulp.task('cssInject', ['styles'], () => (
-  gulp.src('./src/temp/css/style.css')
-    .pipe(browserSync.stream())
-));
+gulp.task('cssInject', ['styles'], () =>
+  gulp.src('./src/temp/css/style.css').pipe(stream()));
 
-gulp.task('htmlRefresh', ['pugToHTML'], () => { reload(); });
-gulp.task('scriptsRefresh', ['scripts'], () => { reload(); });
+gulp.task('htmlRefresh', ['pugToHTML'], () => {
+  reload();
+});
+gulp.task('scriptsRefresh', ['scripts'], () => {
+  reload();
+});
 
-gulp.task('watch:pug', ['pugToHTML'], () => (
-  watch('./src/pug/**/*.pug', () => gulp.start('pugToHTML'))
-));
+gulp.task('watch:pug', ['pugToHTML'], () =>
+  watch('./src/pug/**/*.pug', () => gulp.start('pugToHTML')));
