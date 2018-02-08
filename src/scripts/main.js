@@ -1,13 +1,3 @@
-(function test() {
-  function markAsCorrect(el) {
-    el.classList.remove('test--incorrect');
-    el.classList.add('test--correct');
-  }
+import testStarterKit from './modules/FakeTest';
 
-  function changeLastItem() {
-    const lastItem = document.querySelector('li:last-of-type');
-    markAsCorrect(lastItem);
-  }
-
-  setTimeout(changeLastItem, 2000);
-}());
+testStarterKit();
