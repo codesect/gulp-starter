@@ -10,7 +10,7 @@ This Gulp starter kit will help you do frontend tasks like:
 * reloading the browser automatically whenever a file is saved
 * synchronising interaction across multiple devices/browsers
 
-![Gulp Frontend Starter](src/images/screenshot.jpg?raw=true&sanitize=true)
+![Gulp Frontend Starter](src/images/screenshot.png?raw=true&sanitize=true)
 
 ## What's Included
 
