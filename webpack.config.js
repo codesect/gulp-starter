@@ -1,4 +1,5 @@
 const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -24,22 +25,24 @@ const config = {
 };
 
 if (isDev) {
-  config.module.rules.loaders.push('eslint-loader');
+  config.mode = 'development';
+  config.module.rules[0].loaders.push('eslint-loader');
 } else {
+  config.mode = 'production';
   config.plugins = [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': process.env.NODE_ENV,
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true,
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        compress: {
+          warnings: true,
+        },
+        output: {
+          beautify: false,
+        },
         warnings: true,
       },
-      output: {
-        comments: false,
-        screw_ie8: true,
-      },
-      sourceMap: false,
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
