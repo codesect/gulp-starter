@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('./partials/head.html', { "title": "Home | Gulp Front End Starter",
+  "description": "Gulp starter kit to help you with your frontend tasks" })
+  <body>
+    @@include('./partials/header.html')
+    <main class="content">
+      <div class="container container--main">
+        <svg
+          class="content__image"
+          height="192px"
+          version="1.1"
+          viewBox="0 0 58 58"
+          width="192px"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+        >
+          <g fill="transparent" stroke-width="4" stroke-linecap="round">
+            <line stroke="#c2185b" x1="28" y1="2" x2="28" y2="26" />
+            <path
+              stroke="#455a64"
+              d="M35.029,6.002 C45.414,9.039,53,18.633,53,30c0,13.807-11.193,25-25,25S3,43.807,3,30C3,18.623,10.6,9.021,21,5.993"
+            />
+          </g>
+        </svg>
+        <p>
+          <a href="/example.html">Visit an example page »</a>
+        </p>
+        <p>Let's check if everything is working...</p>
+        <ul class="tests">
+          <li class="test test--correct">HTML partials</li>
+          <li class="test test--correct">Sass to CSS</li>
+          <li class="test test--incorrect">JS bundling</li>
+        </ul>
+      </div>
+    </main>
+    @@include('./partials/footer.html')
+  </body>
+</html>

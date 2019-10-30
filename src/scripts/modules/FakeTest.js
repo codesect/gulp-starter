@@ -5,9 +5,12 @@ export default function test() {
   }
 
   function changeLastItem() {
-    const lastItem = document.querySelector('li:last-of-type');
+    const lastItem = document.querySelector('.container--main li:last-of-type');
+    if (!lastItem) {
+      return;
+    }
     markAsCorrect(lastItem);
   }
 
-  setTimeout(changeLastItem, 2000);
+  setTimeout(changeLastItem, 3000);
 }

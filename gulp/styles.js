@@ -1,31 +1,45 @@
-const gulp = require('gulp');
-const postCSS = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
-const autoprefixer = require('autoprefixer');
-const normalize = require('postcss-normalize');
+import autoprefixer from 'autoprefixer';
+import cleanCSS from 'gulp-clean-css';
+import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import nodeSass from 'node-sass';
+import normalize from 'postcss-normalize';
+import postCSS from 'gulp-postcss';
+import rev from 'gulp-rev';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 
+import { distCSS, srcSass } from './config';
+
+sass.compiler = nodeSass;
+
+const isProduction = process.env.NODE_ENV === 'production';
 const sassOptions = {
-  outputStyle: 'expanded',
+  outputStyle: isProduction ? 'compressed' : 'expanded',
 };
 
 const postCSSPlugins = [
   normalize({
-    forceImport: true,
+    forceImport: 'sanitize.css',
   }),
   autoprefixer,
 ];
 
-gulp.task('styles', () =>
-  gulp
-    .src('./src/styles/style.sass')
+function styles() {
+  return gulp
+    .src(srcSass)
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(postCSS(postCSSPlugins))
-    .on('error', (err) => {
+    .on('error', err => {
       // eslint-disable-next-line no-console
       console.error(err.toString());
       this.emit('end');
     })
+    .pipe(gulpIf(isProduction, cleanCSS()))
+    .pipe(gulpIf(isProduction, rev()))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./src/temp/css')));
+    .pipe(gulp.dest(distCSS));
+}
+
+export default styles;

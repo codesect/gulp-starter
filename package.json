@@ -1,51 +1,59 @@
 {
   "name": "gulp-starter",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Gulp starter kit for frontend projects",
-  "main": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zsoltime/gulp-starter.git"
+    "url": "https://github.com/codesect/gulp-starter.git"
   },
   "scripts": {
-    "build": "gulp build:dist",
-    "preview": "gulp preview:dist",
-    "start": "NODE_ENV='development' gulp",
+    "build": "cross-env NODE_ENV='production' gulp build",
+    "gulp": "gulp",
+    "format": "prettier --write \"./src/**/*.{js,json}\"",
+    "lint": "eslint src",
+    "start": "cross-env NODE_ENV='development' gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Zsolt Meszaros",
+  "private": true,
   "license": "MIT",
   "dependencies": {
-    "postcss-normalize": "^6.0.0"
+    "postcss-normalize": "^8.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.3",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.4",
-    "del": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.3",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-pug": "^4.0.1",
-    "gulp-rev": "^8.1.1",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-usemin": "^0.3.29",
-    "gulp-watch": "^5.0.0",
-    "psi": "^3.1.0",
-    "uglifyjs-webpack-plugin": "^1.2.6",
-    "webpack": "^4.12.0"
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "autoprefixer": "^9.7.0",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "core-js": "^3.3.5",
+    "cross-env": "^6.0.3",
+    "del": "^5.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-file-include": "^2.1.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-inject": "^5.0.4",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "imagemin-mozjpeg": "^8.0.0",
+    "node-sass": "^4.13.0",
+    "webpack-stream": "^5.2.1"
   },
   "bugs": {
-    "url": "https://github.com/zsoltime/gulp-starter/issues"
+    "url": "https://github.com/codesect/gulp-starter/issues"
   },
-  "homepage": "https://github.com/zsoltime/gulp-starter#readme"
+  "homepage": "https://github.com/codesect/gulp-starter#readme"
 }

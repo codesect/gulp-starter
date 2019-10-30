@@ -1,14 +1,16 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2017": true,
     "node": true
   },
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
-      "modules": true
-    }
+      "impliedStrict": true
+    },
+    "ecmaVersion": 2019,
+    "sourceType": "module"
   },
   "rules": {
     "comma-dangle": [
@@ -23,16 +25,7 @@
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      {
-        "devDependencies": [
-          "gulp/**",
-          "gulpfile.js",
-          "tests/**",
-          "webpack.config.js"
-        ]
-      }
-    ],
-    "max-len": ["error", { "code": 80 }],
-    "no-param-reassign": ["error", { "props": false }]
+      { "devDependencies": ["gulp/**", "gulpfile.babel.js", "tests/**"] }
+    ]
   }
 }

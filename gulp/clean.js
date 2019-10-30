@@ -1,5 +1,9 @@
-const gulp = require('gulp');
-const del = require('del');
+import del from 'del';
 
-gulp.task('clean:temp', () => del.sync('./src/temp'));
-gulp.task('clean:dist', () => del.sync('./dist'));
+import { distDir } from './config';
+
+function clean() {
+  return del(distDir);
+}
+
+export default clean;

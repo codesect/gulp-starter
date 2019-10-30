@@ -1,3 +1,3 @@
 import testStarterKit from './modules/FakeTest';
 
-testStarterKit();
+document.addEventListener('DOMContentLoaded', testStarterKit);

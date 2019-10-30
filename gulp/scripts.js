@@ -1,17 +1,32 @@
-/* eslint-disable no-console */
-const gulp = require('gulp');
-const webpack = require('webpack');
-const config = require('../webpack.config.js');
+import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import rev from 'gulp-rev';
+import webpack from 'webpack-stream';
 
-const compile = (callback) => {
-  webpack(config, (err, stats) => {
-    if (err) {
-      console.error(err.toString());
-    }
-    console.log(stats.toString());
-    callback();
-  });
+import { distJS, srcJS, sourcemapJS } from './config';
+
+const isProduction = process.env.NODE_ENV === 'production';
+const webpackConfig = {
+  devtool: sourcemapJS,
+  mode: isProduction ? 'production' : 'development',
+  output: { filename: '[name].js' },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+    ],
+  },
 };
 
-gulp.task('scripts', ['env:dev'], compile);
-gulp.task('scripts:dist', ['env:prod'], compile);
+function scripts() {
+  return gulp
+    .src(srcJS)
+    .pipe(webpack(webpackConfig))
+    .pipe(gulpIf(isProduction, rev()))
+    .pipe(gulp.dest(distJS));
+}
+
+export default scripts;
