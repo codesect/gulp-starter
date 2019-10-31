@@ -1,10 +1,10 @@
-<h1 align="center">💡 Gulp Starter Kit 💡<br>for Frontend Projects</h1>
+<h1 align="center">💡 Gulp Starter Kit 💡<br>for Front-End Projects</h1>
 
-This Gulp starter kit will help you do frontend tasks like:
+This Gulp starter kit will help you do front-end tasks like:
 
 - combining HTML partials
-- compiling ES6+ code, so you can use next generation JavaScript
-- compiling and autoprefixing your Sass files
+- compiling ES6+ code, so you can use next-generation JavaScript
+- compiling and auto prefixing your Sass files
 - optimising your images, CSS, and JavaScript files
 - spinning up a web server
 - reloading the browser automatically whenever a file is saved
@@ -24,7 +24,7 @@ npm install
 npm start
 ```
 
-Your site is now running at `http://localhost:3000`. Open the project in your code editor, and edit something in the `src` folder. Save your changes and the browser will update in real time.
+Your site is now running at `http://localhost:3000`. Open the project in your code editor, and edit something in the `src` folder. Save your changes and the browser will update in real-time.
 
 ![Gulp Frontend Starter](screenshot.png?raw=true&sanitize=true)
 
@@ -75,9 +75,9 @@ yarn install
 npm install
 ```
 
-### Start a dev server with browser sync
+### Start a dev server with browser-sync
 
-It builds HTML, CSS, and the JavaScript bundle, starts a dev server and refreshes the browser on every saved changes.
+It builds HTML, CSS, and the JavaScript bundle; starts a dev server and refreshes the browser on every saved change.
 
 ```bash
 yarn start
