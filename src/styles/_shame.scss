@@ -50,27 +50,27 @@
     &:nth-of-type(#{$i}) {
       animation-delay: 0.2s * $i;
     }
+  }
+
+  &::before {
+    display: inline-block;
+    margin-right: 1ch;
+    transition: 0.3s transform ease-in-out;
+  }
+  &--correct {
+    color: color(teal, dark);
 
     &::before {
-      display: inline-block;
-      margin-right: 1ch;
-      transition: 0.3s transform ease-in-out;
+      content: '👍';
     }
-    &--correct {
-      color: color(teal, dark);
+  }
 
-      &::before {
-        content: '👍';
-      }
-    }
+  &--incorrect {
+    color: color(red, dark);
+    text-decoration: line-through;
 
-    &--incorrect {
-      color: color(red, dark);
-      text-decoration: line-through;
-
-      &::before {
-        content: '💩';
-      }
+    &::before {
+      content: '💩';
     }
   }
 }
