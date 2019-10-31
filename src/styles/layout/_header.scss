@@ -1,0 +1,16 @@
+.heading {
+  border-bottom: 1px solid rgba(black, 0.1);
+  color: color(bluegrey, dark);
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0;
+  text-align: center;
+
+  a {
+    color: inherit;
+  }
+
+  span {
+    color: color(pink, dark);
+  }
+}
