@@ -16,3 +16,8 @@ export const sourcemapJS = 'source-map';
 
 export const openBrowser = true;
 export const port = 3000;
+
+// Add a CSS selector to the list of elements to exclude from Axe analysis
+// https://github.com/felixzapata/gulp-axe-webdriver#exclude
+export const a11yExcludeSelector = 'iframe';
+export const a11yHeadlessBrowser = true;

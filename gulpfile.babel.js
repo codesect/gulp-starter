@@ -1,6 +1,7 @@
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
 
+import a11y from './gulp/a11y';
 import clean from './gulp/clean';
 import html from './gulp/html';
 import images from './gulp/images';
@@ -58,4 +59,5 @@ gulp.task(
   'build',
   gulp.series(clean, gulp.series(scripts, styles, html, images, injectRefs)),
 );
+gulp.task('a11y', gulp.series('build', a11y));
 gulp.task('default', gulp.series('build', gulp.parallel(serve, watchFiles)));
