@@ -9,6 +9,7 @@ This Gulp starter kit will help you do frontend tasks like:
 - spinning up a web server
 - reloading the browser automatically whenever a file is saved
 - synchronising interaction across multiple devices/browsers
+- checking accessibility of production builds
 
 ## 🚀 Quick start
 
@@ -30,12 +31,13 @@ Your site is now running at `http://localhost:3000`. Open the project in your co
 ## What's Included
 
 - [Gulp.js](https://github.com/gulpjs/gulp) task runner
-- [Webpack](https://github.com/webpack/webpack) module bundler
 - [Babel](https://github.com/babel/babel) compiler
-- [ESLint](https://github.com/eslint/eslint) linter with Airbnb's [base config](https://www.npmjs.com/package/eslint-config-airbnb-base)
-- [Prettier](https://prettier.io/) code formatter
+- [Webpack](https://github.com/webpack/webpack) module bundler
 - [Sass](http://sass-lang.com) with [PostCSS](https://github.com/postcss/postcss)' [Autoprefixer](https://github.com/postcss/autoprefixer)
 - [ImageMin](https://github.com/imagemin/imagemin) image minifier
+- [Axe](https://github.com/dequelabs/axe-core) accessibility testing engine
+- [ESLint](https://github.com/eslint/eslint) linter with Airbnb's [base config](https://www.npmjs.com/package/eslint-config-airbnb-base)
+- [Prettier](https://prettier.io/) code formatter
 
 ## What's Inside
 
