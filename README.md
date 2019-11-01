@@ -63,16 +63,64 @@ A quick look at the top-level files and directories you'll see inside.
     ├── package.json
     └── README.md
 
+### `dist/`
+
+This directory contains your compiled files. It will be created only after you run `npm start` or `npm run build`. This directory is not tracked by git and won't be uploaded to your repo.
+
+### `gulp/`
+
+This directory contains private gulp tasks used in `gulpfile.babel.js`.
+
+### `node_modules/`
+
+This directory contains all of the modules your project depends on. These are automatically installed when you run `npm install`.
+
+### `src/`
+
+This directory will contain all of the code related to what you will see on the front-end of your site. This is the folder you're working in. If you want to rename it to something else, don't forget to update the `gulp/config.js` file.
+
+### `.babelrc`
+
+This is a configuration file for Babel. There is only one preset enabled by default, [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env). It only includes polyfills and code transforms needed for users whose browsers are defined in your `.browserlistrc` config.
+
+### `.browserlistrc`
+
+This is a configuration file used by Autoprefixer, Babel, and normalize.css to find your targeted browsers. [browserslist](https://github.com/browserslist/browserslist) allows you to describe which browsers your site needs to support.
+
+### `.eslintrc`
+
+This is a configuration file for ESLint. ESLint is very flexible and configurable linter that helps to identify issues in your code.
+
+### `.gitignore`
+
+This file tells git which files it should not track.
+
+### `.prettierrc`
+
+This is a configuration file for Prettier. Prettier is a tool to help keep the formatting of your code consistent.
+
+### `gulpfile.babel.js`
+
+This file contains public tasks which can be run by the gulp command.
+
+### `package.json` and `package-lock.json`
+
+`package.json` is a manifest file for Node.js projects, which includes things like metadata (the project's name, author, etc). This manifest is how npm knows which packages to install for your project. `package-lock.json` is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project.
+
+### `README.md`
+
+A text file containing information about your project. This is the one you're reading at the moment.
+
 ## Install and Build
 
-You can use either `yarn` or `npm`:
+Once you cloned the repo, you need to install the dependencies. You can use either `yarn` or `npm`:
 
 ### Install dependencies
 
 ```bash
-yarn install
-# OR
 npm install
+# OR
+yarn install
 ```
 
 ### Start a dev server with browser-sync
@@ -80,9 +128,9 @@ npm install
 It builds HTML, CSS, and the JavaScript bundle; starts a dev server and refreshes the browser on every saved change.
 
 ```bash
-yarn start
-# OR
 npm start
+# OR
+yarn start
 ```
 
 ### Build production bundle
@@ -90,7 +138,11 @@ npm start
 It uglifies JS, minifies CSS and images, replaces references to non-optimized scripts and stylesheets in HTML files and copies everything necessary to the `dist` folder - ready to upload.
 
 ```bash
-yarn build
-# OR
 npm run build
+# OR
+yarn build
 ```
+
+## Contribution
+
+All contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
