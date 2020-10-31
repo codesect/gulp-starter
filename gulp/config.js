@@ -1,3 +1,6 @@
+/**
+ * Source and build folder settings
+ */
 export const srcDir = './src';
 export const srcHTMLBuild = `${srcDir}/html/*.html`;
 export const srcHTMLWatch = `${srcDir}/html/**/*.html`;
@@ -11,11 +14,23 @@ export const distHTML = `${distDir}/`;
 export const distImages = `${distDir}/images`;
 export const distJS = `${distDir}/js`;
 
+/**
+ * Webpack settings
+ */
+
 // https://webpack.js.org/configuration/devtool/#devtool
 export const sourcemapJS = 'source-map';
 
+/**
+ * Browser-sync settings
+ */
+
 export const openBrowser = true;
 export const port = 3000;
+
+/**
+ * Axe settings
+ */
 
 // Add a CSS selector to the list of elements to exclude from Axe analysis
 // https://github.com/felixzapata/gulp-axe-webdriver#exclude
