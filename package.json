@@ -9,8 +9,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV='production' gulp build",
     "gulp": "gulp",
-    "format": "prettier --write \"./src/**/*.{js,json}\"",
-    "lint": "eslint src",
+    "format": "prettier --write \"./{gulp,src}/**/*.{js,json}\"",
+    "lint": "eslint {gulp,src}",
     "start": "cross-env NODE_ENV='development' gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
