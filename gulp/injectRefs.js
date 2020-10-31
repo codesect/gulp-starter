@@ -1,9 +1,10 @@
 import gulp from 'gulp';
 import inject from 'gulp-inject';
+import { distCSS, distDir, distHTML, distJS } from './config';
 
 function injectRefs() {
-  const target = gulp.src('./dist/**/*.html');
-  const sources = gulp.src(['./dist/js/*.js', './dist/css/*.css'], {
+  const target = gulp.src(`${distHTML}**/*.html`);
+  const sources = gulp.src([`${distJS}/*.js`, `${distCSS}/*.css`], {
     read: false,
   });
 
@@ -14,7 +15,7 @@ function injectRefs() {
         removeTags: true,
       }),
     )
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest(distDir));
 }
 
 export default injectRefs;
