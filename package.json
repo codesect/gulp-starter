@@ -50,7 +50,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "imagemin-mozjpeg": "^9.0.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "webpack-stream": "^6.1.0"
   },
   "bugs": {
